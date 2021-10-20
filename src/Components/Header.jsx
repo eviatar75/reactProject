@@ -15,7 +15,7 @@ const Header = ()=>{
                 </div>
                 <div class="flex w-full justify-end space-x-4 mr-10 mt-3">
                     <div>
-                        <a href="https://www.google.com" class="btn-xs t:btn-xl ">Accueil</a>
+                        <a><Link to={Constant.PATHS.HOME}>Accueil</Link></a>
                     </div>
                     <div>
                         <a href="https://www.google.com" class="btn-xs t:btn-xl ">Recherche</a>

@@ -13,7 +13,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
-      <Route exact path="/">
+      <Route exact path={Constant.PATHS.HOME}>
         <Header></Header>
         <Footer></Footer>
       </Route>
