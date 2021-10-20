@@ -12,16 +12,16 @@ const Header = ()=>{
                 </div>
                 <div class="flex w-full justify-end space-x-4 mr-10 mt-3">
                     <div>
-                        <a href="https://www.google.com" class="btn-xs t:btn-xl ">Blog</a>
+                        <a href="https://www.google.com" class="btn-xs t:btn-xl ">Accueil</a>
                     </div>
                     <div>
-                        <a href="https://www.google.com" class="btn-xs t:btn-xl ">F.A.Q</a>
+                        <a href="https://www.google.com" class="btn-xs t:btn-xl ">Recherche</a>
                     </div>
                     <div>
-                        <a href="https://www.google.com" class="btn btn-primary bg-brand-red ms:btn-xs t:btn-xl ls:btn-md">Inscription</a>
+                        <a href="https://www.google.com" class="btn btn-primary bg-brand-red ms:btn-xs t:btn-xl ls:btn-md">Qui sommes nous ?</a>
                     </div>
                     <div>
-                        <a href="tel:+330170934060" class="btn btn-primary bg-brand-red ms:btn-xs t:btn-xl ls:btn-md">01 70 93 40 60</a>
+                        <a href="https://www.google.com" class="btn btn-primary bg-brand-red ms:btn-xs t:btn-xl ls:btn-md">Nous contacter</a>
                     </div>
                 </div>
             </header>
