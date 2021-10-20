@@ -7,14 +7,14 @@ function IndexPage() {
                     <div>
                         <img src="https://i.goopics.net/ngbszq.png" width={200} alt="" />
                     </div>
-                    <div className="text-black flex flex-col md:items-center pt-3">
+                    <div className="text-black flex flex-col items-center pt-3">
                         <h1 className="text-2xl font-black">Search your books</h1>
                         <div className="my-6 text-base text-color f-f-l">
-                            <ul className="md:flex items-center">
-                                <li className=" md:mr-6 pt-4 lg:py-0">Harder</li>
-                                <li className=" md:mr-6 pt-4 lg:py-0">Better</li>
-                                <li className=" md:mr-6 pt-4 lg:py-0">Faster</li>
-                                <li className=" md:mr-6 pt-4 lg:py-0">Stronger</li>
+                            <ul className="flex items-center space-x-4">
+                                <li className="pt-4 py-0">Harder</li>
+                                <li className="pt-4 py-0">Better</li>
+                                <li className="pt-4 py-0">Faster</li>
+                                <li className="pt-4 py-0">Stronger</li>
                             </ul>
                         </div>
                         <div className="text-sm text-color mb-5 f-f-l">
