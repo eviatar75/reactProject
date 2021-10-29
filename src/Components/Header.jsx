@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import { Constant } from "../Constant";
+
 const Header = ()=>{
     return<div>
         <div class="fixed w-full bg-yellow-200">
@@ -12,13 +15,14 @@ const Header = ()=>{
                 </div>
                 <div class="flex w-full justify-end space-x-4 mr-10 mt-3">
                     <div>
-                        <a href="https://www.google.com">Accueil</a>
+                        <a><Link to={Constant.PATHS.HOME}>Accueil</Link></a>
                     </div>
                     <div>
                         <a href="https://www.google.com">Recherche</a>
                     </div>
                     <div>
-                        <a href="https://www.google.com">Qui sommes nous ?</a>
+
+                        <a> <Link to={Constant.PATHS.ABOUT}>A propos</Link> </a>
                     </div>
                     <div>
                         <a href="https://www.google.com">Nous contacter</a>

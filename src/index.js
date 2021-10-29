@@ -4,12 +4,24 @@ import './index.css';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import About from './Components/pages/About/About';
+import { Constant } from './Constant';
+
 
 ReactDOM.render(
   <React.StrictMode>
-
-    <Header></Header>
-    <Footer></Footer>
+    <Router>
+      <Switch>
+      <Route exact path={Constant.PATHS.HOME}>
+        <Header></Header>
+        <Footer></Footer>
+      </Route>
+      <Route path={Constant.PATHS.ABOUT}>
+        <About/>  
+      </Route>
+      </Switch>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
