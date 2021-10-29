@@ -9,7 +9,7 @@ function IndexPage() {
                     </div>
                     <div className="text-black flex flex-col items-center pt-3">
                         <h1 className="text-2xl font-black">Search your books</h1>
-                        <div className="my-6 text-base text-color f-f-l">
+                        <div className="my-1 text-base text-color f-f-l">
                             <ul className="flex items-center space-x-4">
                                 <li className="pt-4 py-0">Harder</li>
                                 <li className="pt-4 py-0">Better</li>
