@@ -35,11 +35,11 @@ class About extends Component{
                             {this.state.person[0].name.title} {this.state.person[0].name.first} {this.state.person[0].name.last}
                         </div>
                         <div>
-                            <img className="pr-2" src={this.state.person[1].picture.thumbnail} alt="" />         
+                            <img className="pr-2" src={this.state.person[1].picture.large} alt="" />         
                             {this.state.person[1].name.title} {this.state.person[1].name.first} {this.state.person[1].name.last}
                         </div>
                         <div>
-                            <img className="pr-2" src={this.state.person[2].picture.thumbnail} alt="" />         
+                            <img className="pr-2" src={this.state.person[2].picture.large} alt="" />         
                             {this.state.person[2].name.title} {this.state.person[2].name.first} {this.state.person[2].name.last}
                         </div>
                     </div>
