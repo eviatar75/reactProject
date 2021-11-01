@@ -1,4 +1,5 @@
 import { Component, useState } from "react";
+import DropDownButtonPageAbout from "../Button/DropDownButtonPageAbout";
 import RoundedImage from "../RoundedImage/RoundedImage";
 
 class CardTeamPageAbout extends Component {
@@ -37,10 +38,10 @@ class CardTeamPageAbout extends Component {
                                     radius="40" />
                             </div>
                             <div class="px-6 py-4">
-                                <div class="font-bold text-xl mb-2">{person.name.title} {person.name.first} {person.name.last}</div>
-                                <p class="text-gray-700 text-base">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.Voluptatibus quia, nulla!Maiores et perferendis eaque, exercitationem praesentium nihil.
-                                </p>
+                                <div class="grid place-items-center">
+                                    <div class="font-bold text-xl mb-2">{person.name.title} {person.name.first} {person.name.last}</div>
+                                    <DropDownButtonPageAbout ville={person.location.city} mail={person.email} telephone={person.phone}/>
+                                </div>
                             </div>
                         </div>
                        </div> )
@@ -51,70 +52,3 @@ class CardTeamPageAbout extends Component {
 }
 
 export default CardTeamPageAbout;
-/*</div>
-const [showDescription1, setShowDescription1] = useState(false);
-const [showDescription2, setShowDescription2] = useState(false);
-const [showDescription3, setShowDescription3] = useState(false);
-
-
-
-return (
-    <>
-        <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
-            <div class="rounded overflow-hidden shadow-lg">
-                <div class="grid place-items-center">
-                    <RoundedImage photo="http://www.mjc-saix.fr/wp-content/uploads/2015/04/homme-anonyme.jpg"
-                        color="#321124"
-                        width="100"
-                        height="100"
-                        size="10"
-                        radius="40" />
-                </div>
-                <div class="px-6 py-4">
-                    <div class="font-bold text-xl mb-2">Eviatar</div>
-                    <p class="text-gray-700 text-base">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.Voluptatibus quia, nulla!Maiores et perferendis eaque, exercitationem praesentium nihil.
-                    </p>
-                </div>
-            </div>
-            <div class="rounded overflow-hidden shadow-lg">
-                <div class="grid place-items-center">
-                    <RoundedImage photo="http://www.mjc-saix.fr/wp-content/uploads/2015/04/homme-anonyme.jpg"
-                        color="#321124"
-                        width="100"
-                        height="100"
-                        size="10"
-                        radius="40" />
-                </div>
-                <div class="px-6 py-4">
-                    <div class="font-bold text-xl mb-2">Isuri</div>
-                    <p class="text-gray-700 text-base">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.Voluptatibus quia, nulla!Maiores et perferendis eaque, exercitationem praesentium nihil.
-                    </p>
-                </div>
-            </div>
-            <div class="rounded overflow-hidden shadow-lg">
-                <div class="grid place-items-center">
-                    <RoundedImage photo="http://www.mjc-saix.fr/wp-content/uploads/2015/04/homme-anonyme.jpg"
-                        color="#321124"
-                        width="100"
-                        height="100"
-                        size="10"
-                        radius="40" />
-                </div>
-                <div class="px-6 py-4">
-                    <div class="font-bold text-xl mb-2">Thibaut</div>
-                    <p class="text-gray-700 text-base">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.Voluptatibus quia, nulla!Maiores et perferendis eaque, exercitationem praesentium nihil.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-    </>
-)
-}
-
-
-*/
-
