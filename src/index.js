@@ -18,7 +18,9 @@ ReactDOM.render(
         <Footer></Footer>
       </Route>
       <Route path={Constant.PATHS.ABOUT}>
-        <About/>  
+      <Header></Header>
+      <About/>
+      <Footer></Footer>
       </Route>
       </Switch>
     </Router>

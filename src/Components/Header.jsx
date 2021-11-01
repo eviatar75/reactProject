@@ -21,7 +21,6 @@ const Header = ()=>{
                         <a href="https://www.google.com">Recherche</a>
                     </div>
                     <div>
-
                         <a> <Link to={Constant.PATHS.ABOUT}>A propos</Link> </a>
                     </div>
                     <div>
