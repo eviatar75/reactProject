@@ -5,7 +5,7 @@ function IndexPage() {
             <div className="pb-12">
                 <div className="mx-auto container pt-20 flex flex-col items-center justify-center">
                     <div>
-                        <img src="https://i.goopics.net/ngbszq.png" width={200} alt="" />
+                        <img src="https://i.goopics.net/ngbszq.png" width="200" alt="" />
                     </div>
                     <div className="text-black flex flex-col items-center pt-3">
                         <h1 className="text-2xl font-black">Search your books</h1>

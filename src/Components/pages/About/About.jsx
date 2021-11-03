@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import CardPageAboutProject from "../../Card/CardPageAboutProject";
 import CardTeamPageAbout from "../../Card/CardTeamPageAbout";
 import TitlePageAbout from "../../TitlePageAbout/TitlePageAbout";

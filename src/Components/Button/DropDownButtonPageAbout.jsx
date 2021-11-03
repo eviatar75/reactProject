@@ -49,7 +49,7 @@ function DropDownButtonPageAbout({ ville, mail, telephone }) {
                                     <div class="pl-8 pr-8 pb-5 text-grey-darkest">
                                         <ul class="pl-4">
                                             <li class="pb-2">
-                                                [{mail}]
+                                                {mail}
                                             </li>
                                         </ul>
                                     </div>
