@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import About from './Components/pages/About/About';
 import { Constant } from './Constant';
-
+import Home from './Components/pages/Home/Home';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,6 +15,7 @@ ReactDOM.render(
       <Switch>
       <Route exact path={Constant.PATHS.HOME}>
         <Header></Header>
+        <Home/>
         <Footer></Footer>
       </Route>
       <Route path={Constant.PATHS.ABOUT}>
