@@ -1,25 +1,23 @@
-import { Component, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import DropDownButtonPageAbout from "../Button/DropDownButtonPageAbout";
 import RoundedImage from "../RoundedImage/RoundedImage";
 
 function CardTeamPageAbout(){
     const [persons, setPerson]=useState(null)
 
-     useEffect( async()=>{
+     useEffect( ()=>{
+        async function fetchData(){
         const url = "https://api.randomuser.me/?results=3&&nat=fr"
         const response = await fetch(url)
         const data = await response.json()
         setPerson(data.results)
+        }
+        fetchData();
+
     },[]);
 
     if(!persons){
-        return <div className="pt-20">
-            <div className="flex justify-center space-x-8 pt-10">
-                <div>
-                    loading...
-                </div>
-            </div>
-        </div>
+        return   <button disabled="true" className="bg-gray-200 text-2xl font-bold rounded-full p-4 mb-10 mt-10">Loading...</button>         
     }
     else {
         return<div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">

@@ -18,7 +18,7 @@ const Header = ()=>{
                         <a><Link to={Constant.PATHS.HOME}>Accueil</Link></a>
                     </div>
                     <div>
-                        <a href="https://www.google.com">Recherche</a>
+                        <a><Link to={Constant.PATHS.SEARCH}>Rechercher</Link></a>
                     </div>
                     <div>
                         <a> <Link to={Constant.PATHS.ABOUT}>A propos</Link> </a>

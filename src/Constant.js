@@ -2,6 +2,7 @@ export const Constant={
     PATHS:{
         ABOUT:'/about',
         HOME:'/',
-        CONTACTUS: '/contactUs'
+        CONTACTUS: '/contactUs',
+        SEARCH : '/search'
     }
 }
