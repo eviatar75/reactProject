@@ -24,7 +24,7 @@ const Header = ()=>{
                         <a> <Link to={Constant.PATHS.ABOUT}>A propos</Link> </a>
                     </div>
                     <div>
-                        <a href="https://www.google.com">Nous contacter</a>
+                        <a> <Link to={Constant.PATHS.CONTACTUS}>Nous contacter</Link> </a>
                     </div>
                 </div>
             </header>

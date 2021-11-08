@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import About from './Components/pages/About/About';
 import { Constant } from './Constant';
 import Home from './Components/pages/Home/Home';
+import ContactUs from './Components/pages/ContactUs/ContactUs';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -22,6 +23,11 @@ ReactDOM.render(
       <Header></Header>
       <About/>
       <Footer></Footer>
+      </Route>
+      <Route exact path={Constant.PATHS.CONTACTUS}>
+        <Header></Header>
+        <ContactUs/>
+        <Footer></Footer>
       </Route>
       </Switch>
     </Router>
