@@ -30,9 +30,21 @@ const Search = ()=>{
         }       
     }
 
+    const fetchAPI = async()=>{
+
+        const url = "https://www.googleapis.com/books/v1/volumes?q=harry+potter+author:rowling+isbn:9781781101087&key=key"
+
+        const response = await fetch(url)
+
+        const data = await response.json()
+
+        setBooks(data.results)
+
+    }
+
     return <>
             <div className="pt-40 flex justify-center"> 
-            <form action="submit" className="grid grid-cols-2 gap-4">
+            <form action={fetchAPI()} className="grid grid-cols-2 gap-4">
                     <label>Titre</label>
                     <input value={title} type="text" id="titre" className="border-2 border-gray-300 rounded" onChange={(e)=>titleSetter(e)}></input>
                     <label>Auteur</label>
