@@ -1,51 +1,63 @@
-function Form({prenom, nom, couriel, telephone, message, bouton}) {
-  return(
-    <form class="w-full" >
-  <div class="flex flex-wrap -mx-3 mb-4">
-  <div class="w-full md:w-1/2 px-12">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-      {prenom}
-      </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text"/>
-    </div>
-    <div class="w-full md:w-1/2 px-12">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-        {nom}
-      </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text"/>
-    </div>
-    <div class="w-full md:w-1/2 px-12">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-        {couriel}
-      </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text"/>
-    </div>
-    <div class="w-full md:w-1/2 px-12">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-        {telephone}
-      </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text"/>
-    </div>
-  </div>
-  <div class="flex flex-wrap -mx-3 mb-20">
-    <div class="w-full px-12">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-        {message}
-      </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-full" id="grid-password" type="password"/>
-      <p class="text-gray-600 text-xs italic">Faites-le aussi long et aussi fou que vous le souhaitez</p>
-    </div>
-  </div>
-  <div class="flex flex-wrap -mx-3 mb-12">
-    <div class="w-full px-12">
-      <button class="font-bold py-2 px-10 rounded  bg-blue-500 text-white bg-blue-700 -left-px">
-      {bouton}
-      </button>
-    </div>
-  </div>
-</form>
-)
+import InputFormContactUs from "../Input/InputFormContactUs";
+import LabelFormContactUs from "../Label/LabelFormContactUs";
+import React, { useState } from "react";
+const Form = ()=>{
 
-};
+    const [unfilled, setUnfilled]=useState(true)
+    const [prenom, setPrenom] = useState("")
+    const [nom, setnom] = useState("")
+    const [courriel, setcourriel] = useState("")
+    const [telephone, setTelephone] = useState("")
+    const [message, setMessage] = useState("")
+    
+    const prenomSetter = (e)=>{
+        setPrenom(e.target.value)   
+        checkFilled();   
+    }
+
+    const nomSetter = (e)=>{
+        setnom(e.target.value)   
+        checkFilled(); 
+    }
+
+    const courrielSetter = (e)=>{
+        setcourriel(e.target.value)  
+        checkFilled();  
+    }
+
+    const telephoneSetter = (e)=>{
+      setTelephone(e.target.value)  
+      checkFilled();   
+    }
+
+    const messageSetter = (e)=>{
+      setMessage(e.target.value)
+      checkFilled();     
+    }
+
+    function checkFilled(){
+        if(prenom && nom &&courriel &&telephone &&message){
+            setUnfilled(false);
+        }
+    }
+
+    return <>
+            <div className="pt-40 flex justify-center"> 
+            <form action="submit" className="grid grid-cols-2 gap-4">
+                    <LabelFormContactUs text="Prénom"/>
+                    <InputFormContactUs type="text" className="bg-gray-200 text-xl font-bold rounded-full p-1" onChange={(e)=>nomSetter(e)}/>
+                    <LabelFormContactUs text="Nom"/>
+                    <InputFormContactUs type="text" className="bg-gray-200 text-xl font-bold rounded-full p-1" onChange={(e)=>prenomSetter(e)}/>
+                    <LabelFormContactUs text="Courriel"/>
+                    <InputFormContactUs type="text" className="bg-gray-200 text-xl font-bold rounded-full p-1" onChange={(e)=>courrielSetter(e)}/>
+                    <LabelFormContactUs text="Téléphone"/>
+                    <InputFormContactUs type="text" className="bg-gray-200 text-xl font-bold rounded-full p-1" onChange={(e)=>telephoneSetter(e)}/>
+                    <LabelFormContactUs text="Votre message"/>
+                    <textarea className="bg-gray-200 text-xl font-bold rounded-3xl p-1" onChange={(e)=>messageSetter(e)}></textarea>
+                    <InputFormContactUs type="submit" className="bg-gray-200 text-xl font-bold rounded-full p-1" disabled={unfilled}/>
+            </form>      
+            </div>
+          </>
+}
 
 export default Form;
