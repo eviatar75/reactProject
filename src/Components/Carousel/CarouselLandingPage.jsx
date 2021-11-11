@@ -22,8 +22,8 @@ const CarouselLandingPage = ({ cards }) => {
 
     return (
         <section class="h-screen display-flex justify-center items-center md-flex">
-                <button class="relative top-2/4 left-32 animate-bounce" onClick={cardPrecedente}><FaArrowAltCircleLeft size={50} style={{ fill: 'red' }}/></button>
-                <button class="absolute top-2/4 right-32 animate-bounce" onClick={cardPrecedente} ><FaArrowAltCircleRight size={50} style={{ fill: 'orange' }}/></button>
+                <button class="relative top-2/4 left-32 animate-bounce" onClick={cardPrecedente}><FaArrowAltCircleLeft size={50} style={{ fill: 'pink' }}/></button>
+                <button class="absolute top-2/4 right-32 animate-bounce" onClick={cardSuivante} ><FaArrowAltCircleRight size={50} style={{ fill: 'purple' }}/></button>
             {CarouselCardData.map((card, index) => {
                 return (
                     <div class={index === actuel ? 'opacity-1 duration-1500 scale-108' : 'opacity-0 duration-1500 ease'} key={index}>

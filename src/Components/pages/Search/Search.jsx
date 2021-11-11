@@ -1,34 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 const Search = ()=>{
 
     const [unfilled, setUnfilled]=useState(true)
     const [title, setTitle] = useState("")
     const [author, setAuthor] = useState("")
     const [isbn, setIsbn] = useState("")
-    
+
      const titleSetter = (e)=>{
         setTitle(e.target.value)
-        if(e.target.value)
-        {
-            setUnfilled(false)
-        }       
     }
 
     const authorSetter = (e)=>{
         setAuthor(e.target.value)
-        if(e.target.value)
-        {
-            setUnfilled(false)
-        }       
     }
 
     const isbnSetter = (e)=>{
         setIsbn(e.target.value)
-        if(e.target.value)
-        {
-            setUnfilled(false)
-        }       
     }
+
+
+    useEffect( () => {
+            if(title || author || isbn)
+            {
+                setUnfilled(false)
+            }
+            else
+            {
+                setUnfilled(true)
+            }
+      }, [title,author,isbn]);
+
+
 
     const fetchAPI = async()=>{
 
@@ -38,7 +41,7 @@ const Search = ()=>{
 
         const data = await response.json()
 
-        setBooks(data.results)
+      //  setBooks(data.results)
 
     }
 
@@ -53,12 +56,9 @@ const Search = ()=>{
                     <input value={isbn} type="text" id="isbn"  className="border-2 border-gray-300 rounded" onChange={(e)=>isbnSetter(e)}></input>
                     <label></label>
                     <input type="submit" className="bg-gray-200 text-xl font-bold rounded-full p-1" disabled={unfilled}></input>
-                </form>      
+                </form>
             </div>
             </>
 }
 
 export default Search;
-
-/*
-*/
