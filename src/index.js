@@ -16,7 +16,6 @@ ReactDOM.render(
     <Router>
       <Switch>
       <Route exact path={Constant.PATHS.HOME}>
-        <Header></Header>
         <Home/>
         <Footer></Footer>
       </Route>

@@ -3,7 +3,7 @@ import { Constant } from "../Constant";
 
 const Header = ()=>{
     return<div>
-        <div class="fixed w-full bg-yellow-200 z-10">
+        <div class="fixed w-full bg-purple-200 z-10">
             <header class="flex">
                 <div class=" flex justify-start">
                     <div class="p-1 mt-1 ml-1">
