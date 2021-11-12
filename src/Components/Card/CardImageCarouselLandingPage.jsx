@@ -1,10 +1,19 @@
 import { motion } from "framer-motion";
+import { variantsForImageCarouselLandingPage } from "../../Variants";
 
 
 const CardImageCarouselLandingPage = ({ imgsrc, text1, text2, text3 }) => {
     return (<div class="w-screen rounded-lg shadow-lg bg-gradient-to-r from-purple-300 via-rose-200 to-red-300 pt-10">
         <div class="grid place-items-center">
-            <img src={imgsrc} width="45%" alt="" class="rounded-t-lg" />
+            {/*<motion.div
+                variants={variantsForImageCarouselLandingPage}
+                initial="initial"
+                animate="animate"
+            >*/}
+                    <motion.img variants={variantsForImageCarouselLandingPage}
+                initial="initial"
+                animate="animate" src={imgsrc} width="45%" alt="" class="rounded-t-lg" />
+            {/*</motion.div>*/}
             <div class="p-6">
                 <div class="grid place-items-center">
                     <motion.div initial="hidden" animate="visible" variants={{
@@ -61,7 +70,7 @@ const CardImageCarouselLandingPage = ({ imgsrc, text1, text2, text3 }) => {
                         <motion.div whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9, x: "-5px", y: "5px" }}>
                             <div className="href">
-                            <a href="#" class="text-pink-900 hover:text-purple-700 underline text-1xl">{text3}</a>
+                                <a href="#" class="text-pink-900 hover:text-purple-700 underline text-1xl">{text3}</a>
                             </div>
                         </motion.div>
                     </motion.div>

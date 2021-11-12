@@ -20,6 +20,9 @@ const Home = () => {
     const firstScroll = useRef(null);
     const executeScroll = () => firstScroll.current.scrollIntoView({ behavior: "smooth" })
 
+    const returnOnTop = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
 
     const showBestSellers = async () => {
         const url = "https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json?api-key=" + api_key_nytimes;
@@ -54,24 +57,19 @@ const Home = () => {
                 >
                     <Header></Header>
                 </motion.div>
+            </div>
+            <div>
                 <div class="grid place-items-center">
                     <motion.div
                         variants={variantsForCardsUp}
                         initial="initial"
                         animate="animate"
                     >
-                        <CarouselLandingPage cards={CarouselCardData} />
+                        <CarouselLandingPage cards={CarouselCardData} fonctionButtonScroll={executeScroll} />
                     </motion.div>
                 </div>
             </div>
             <div>
-                <div class="grid place-items-center pt-20">
-                    <motion.button whileHover={
-                        { scale: 1.4 }
-                    }>
-                        <button onClick={executeScroll}> <FaArrowCircleDown size={30} style={{ fill: 'purple' }} /></button>
-                    </motion.button>
-                </div>
                 <div ref={firstScroll} class="grid place-items-center pt-10">
                     <motion.div
                         initial={{ opacity: 0, y: '-100px' }}
@@ -102,6 +100,11 @@ const Home = () => {
                         </div>
                     )}
                 </div>}
+                <div class="grid place items-center pt-9">
+                    <button className="buttonTop" class="bg-transparent hover:bg-purple-500 text-purple-700 font-semibold hover:text-white py-2 px-4 border border-purple-200 hover:border-transparent rounded" onClick={() => returnOnTop()}>
+                        Haut de page
+                    </button>
+                </div>
 
 
             </div>
