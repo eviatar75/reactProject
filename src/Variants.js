@@ -109,3 +109,53 @@ export const variantsForImageCarouselLandingPage={
         }
     }
 }
+
+export const variantsForTitleInLandingPage={
+    initial:{ 
+        opacity: 0,
+        y: '-100px' },
+    animate:{ 
+        opacity: 1, 
+        y: 0, 
+        transition:{
+            delay: 2.5,
+            type: 'spring',
+            repeat: Infinity,
+            duration: 2,
+            bounce: 0.7,
+            repeatType: 'reverse'
+        },
+    }
+}
+
+export const variantsForDivBottomLandingPage={
+    initial:{
+        opacity: 0,
+    },
+    animate:{
+        opacity: 1,
+
+        transition: {
+            delay: 1,
+            duration: 2.5,
+            ease: "linear"
+        }
+    }
+}
+
+export const variantsForCardsBookLandingPage={
+    initial:{
+        opacity: 0,
+        y:100
+    },
+    animate:{
+        y: 0,
+        opacity: 1,
+
+        transition: {
+            delay: 3.5,
+            duration: 2.5,
+            ease: "linear"
+        }
+    }
+}

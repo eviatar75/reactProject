@@ -1,11 +1,11 @@
 import { CarouselCardData } from "../../Carousel/CarouselCardDate";
 import CarouselLandingPage from "../../Carousel/CarouselLandingPage";
-import { FaArrowCircleDown } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import CardBooksLandingPage from "../../Card/CardBooksLandingPage";
 import Header from "../../Header";
-import { variantsForCardsUp, variantsForCardsDown, staggerContainer } from "../../../Variants";
+import { variantsForCardsUp, variantsForCardsDown, variantsForTitleInLandingPage, variantsForDivBottomLandingPage, variantsForCardsBookLandingPage } from "../../../Variants";
+import { useInView } from "react-intersection-observer";
 
 const Home = () => {
     ///states
@@ -20,8 +20,14 @@ const Home = () => {
     const firstScroll = useRef(null);
     const executeScroll = () => firstScroll.current.scrollIntoView({ behavior: "smooth" })
 
+    const controlsTitle= useAnimation();
+    const controlsDiv= useAnimation();
+    ///Check if the element is visible or not (boolean)
+    const [refTitle, inViewTitle] = useInView();
+    const [refDiv, inViewDiv] = useInView();
+
     const returnOnTop = () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo({ top: 0, behavior: "smooth"});
     }
 
     const showBestSellers = async () => {
@@ -44,8 +50,14 @@ const Home = () => {
 
     useEffect(async () => {
         showBestSellers();
+        if(inViewDiv){
+            controlsDiv.start("animate");
+        }
+        if(inViewTitle){
+            controlsTitle.start("animate");
+        }
         //updateCoverBook();
-    }, []);
+    }, [controlsTitle, inViewTitle, controlsDiv, inViewDiv]);
 
     return (
         <>
@@ -69,21 +81,22 @@ const Home = () => {
                     </motion.div>
                 </div>
             </div>
-            <div>
-                <div ref={firstScroll} class="grid place-items-center pt-10">
-                    <motion.div
-                        initial={{ opacity: 0, y: '-100px' }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                            type: 'spring',
-                            repeat: Infinity,
-                            duration: 2,
-                            bounce: 0.7,
-                            repeatType: 'reverse'
-                        }}
+            <motion.div
+                ref={refDiv}
+                variants={variantsForDivBottomLandingPage}
+                initial="initial"
+                animate={controlsDiv}
+            >
+            <div ref={firstScroll} class="w-screen rounded-lg shadow-lg bg-gradient-to-r from-red-300 via-rose-200 to-purple-300 pt-10">
+                <div class="grid place-items-center pt-14">
+                    <motion.span
+                        ref={refTitle}
+                        animate={controlsTitle}
+                        variants={variantsForTitleInLandingPage}
+                        initial="initial"
                     >
-                        <p class="text-7xl text-yellow-700 pt-5">Découvrez les best sellers de cette année</p>
-                    </motion.div>
+                        <p class="text-7xl text-purple-700 italic pt-5">Découvrez les best sellers de ces dernières années</p>
+                    </motion.span>
                 </div>
                 {<div class="container my-12 mx-auto pt-10 md:px-12">
                     {books && (
@@ -91,10 +104,16 @@ const Home = () => {
                             {books.map((book, index) => {
                                 return (
                                     <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3" key={index}>
+                                        {/*<motion.div
+                                            variants={variantsForCardsBookLandingPage}
+                                            initial="initial"
+                                            animate="animate"
+                                        >*/}
                                         <CardBooksLandingPage title={book.title} author={book.author} description={book.description} isbn={book.isbns.map((isbn) => {
                                             const { isbn10 } = isbn
                                             return isbn10
                                         })} />
+                                        {/*</motion.div>*/}
                                     </div>)
                             })}
                         </div>
@@ -108,6 +127,7 @@ const Home = () => {
 
 
             </div>
+            </motion.div>
         </>
     )
 }
