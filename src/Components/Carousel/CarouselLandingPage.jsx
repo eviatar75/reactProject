@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { CarouselCardData } from "./CarouselCardDate";
 import { FaAngleDown, FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
-import { staggerContainer, variantsForButtonScroll, variantsForButtonsLandingPage, variantsForCardsDown, variantsForCardsUp, variantsForDivButtonsLandingPage, variantsForWrapperButtonScroll } from "../../Variants";
+import { variantsForButtonScroll, variantsForButtonsLandingPage, variantsForDivButtonsLandingPage, variantsForWrapperButtonScroll } from "../../Variants";
 
 const CarouselLandingPage = ({ cards, fonctionButtonScroll }) => {
     const [actuel, setActuel] = useState(0);

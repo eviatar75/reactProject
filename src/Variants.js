@@ -8,7 +8,7 @@ export const variantsForCardsUp = {
         opacity: 1,
 
         transition: {
-            duration: 0.6,
+            duration: 1.0,
             ease: "easeInOut",
         }
     }
@@ -24,7 +24,7 @@ export const variantsForCardsDown = {
         opacity: 1,
 
         transition: {
-            duration: 0.6,
+            duration: 1.0,
             ease: "easeInOut",
         }
     }
@@ -41,12 +41,12 @@ export const staggerContainer = {
 }
 
 export const variantsForDivButtonsLandingPage = {
-    initial:{
+    initial: {
         y: 0,
         opacity: 0,
     },
-    animate:{
-        y:0,
+    animate: {
+        y: 0,
         opacity: 1,
 
         transition: {
@@ -57,8 +57,8 @@ export const variantsForDivButtonsLandingPage = {
 }
 
 export const variantsForButtonsLandingPage = {
-    initial:{},
-    animate:{
+    initial: {},
+    animate: {
         x: [20, 0, 20],
         transition: {
             delay: 2,
@@ -69,11 +69,11 @@ export const variantsForButtonsLandingPage = {
     }
 }
 
-export const variantsForWrapperButtonScroll={
-    initial:{
+export const variantsForWrapperButtonScroll = {
+    initial: {
         y: -1000
     },
-    animate:{
+    animate: {
         y: 0,
         transition: {
             delay: 1.5,
@@ -83,9 +83,9 @@ export const variantsForWrapperButtonScroll={
     },
 }
 
-export const variantsForButtonScroll={
-    initial:{},
-    animate:{
+export const variantsForButtonScroll = {
+    initial: {},
+    animate: {
         y: [25, 0, 25],
         transition: {
             duration: 1.6,
@@ -95,11 +95,11 @@ export const variantsForButtonScroll={
     },
 }
 
-export const variantsForImageCarouselLandingPage={
-    initial:{
+export const variantsForImageCarouselLandingPage = {
+    initial: {
         opacity: 0,
     },
-    animate:{
+    animate: {
         opacity: 1,
 
         transition: {
@@ -110,14 +110,15 @@ export const variantsForImageCarouselLandingPage={
     }
 }
 
-export const variantsForTitleInLandingPage={
-    initial:{ 
+export const variantsForTitleInLandingPage = {
+    initial: {
         opacity: 0,
-        y: '-100px' },
-    animate:{ 
-        opacity: 1, 
-        y: 0, 
-        transition:{
+        y: '-100px'
+    },
+    animate: {
+        opacity: 1,
+        y: 0,
+        transition: {
             delay: 2.5,
             type: 'spring',
             repeat: Infinity,
@@ -128,11 +129,11 @@ export const variantsForTitleInLandingPage={
     }
 }
 
-export const variantsForDivBottomLandingPage={
-    initial:{
+export const variantsForDivBottomLandingPage = {
+    initial: {
         opacity: 0,
     },
-    animate:{
+    animate: {
         opacity: 1,
 
         transition: {
@@ -143,12 +144,12 @@ export const variantsForDivBottomLandingPage={
     }
 }
 
-export const variantsForCardsBookLandingPage={
-    initial:{
+export const variantsForCardsBookLandingPage = {
+    initial: {
         opacity: 0,
-        y:100
+        y: 100
     },
-    animate:{
+    animate: {
         y: 0,
         opacity: 1,
 
@@ -158,4 +159,53 @@ export const variantsForCardsBookLandingPage={
             ease: "linear"
         }
     }
+}
+
+export const variantsForFirstTextLandingPage = {
+    hidden: {
+        scale: .8,
+        opacity: 0
+    },
+    visible: {
+        scale: 1,
+        opacity: 1,
+        transition: {
+            duration: 1.0,
+            delay: 1.4
+        }
+    }
+}
+
+
+export const variantsForSecondTextLandingPage = {
+    hidden: {
+        scale: .8,
+        opacity: 0
+    },
+    visible: {
+        scale: 1,
+        opacity: 1,
+        transition: {
+            duration: 1.0,
+            delay: 1.8
+        }
+    }
+
+}
+
+
+export const variantsForThirdTextLandingPage = {
+    hidden: {
+        scale: .8,
+        opacity: 0
+    },
+    visible: {
+        scale: 1,
+        opacity: 1,
+        transition: {
+            duration: 1.0,
+            delay: 2.2
+        }
+    }
+
 }
