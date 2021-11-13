@@ -209,3 +209,18 @@ export const variantsForThirdTextLandingPage = {
     }
 
 }
+
+export const variantsForMessageInContactPage={
+    initial:{ 
+        opacity: 0,
+        y: '-100px' },
+    animate:{
+        opacity: 1, 
+        y: 0, 
+        transition:{
+            duration: 2,
+            ease: "easeInOut",
+            scale: [1, 2, 2, 1, 1],
+        },
+    }
+}

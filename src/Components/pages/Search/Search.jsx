@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import CardBooksLandingPage from "../../Card/CardBooksLandingPage";
+import CardBooksSearchPage from "../../Card/CardBooksSearchPage";
 
 const Search = ()=>{
 
@@ -68,7 +68,7 @@ const Search = ()=>{
                 </form>
             </div>
             <div className="grid grid-cols-4 gap-2">
-            { books!==null && typeof books.items !== 'undefined'? books.items.map((item) => { return <div><CardBooksLandingPage source={typeof item.volumeInfo.imageLinks !== 'undefined'?item.volumeInfo.imageLinks.thumbnail:""} title={item.volumeInfo.title} author={item.volumeInfo.authors} description={item.description} isbn={typeof item.volumeInfo.industryIdentifiers !== 'undefined'?item.volumeInfo.industryIdentifiers[0].identifier:""} ></CardBooksLandingPage></div>}):<div>Aucun livre de ce genre...</div>}
+            { books!==null && typeof books.items !== 'undefined'? books.items.map((item) => { return <div><CardBooksSearchPage source={typeof item.volumeInfo.imageLinks !== 'undefined'?item.volumeInfo.imageLinks.thumbnail:""} title={item.volumeInfo.title} author={item.volumeInfo.authors} description={item.description} isbn={typeof item.volumeInfo.industryIdentifiers !== 'undefined'?item.volumeInfo.industryIdentifiers[0].identifier:""} ></CardBooksSearchPage></div>}):<div>Aucun livre de ce genre...</div>}
             </div>
             </>
 }
