@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { variantsForFirstTextLandingPage, variantsForImageCarouselLandingPage, variantsForSecondTextLandingPage, variantsForThirdTextLandingPage } from "../../Variants";
+import { Link } from "react-router-dom";
 
-
-const CardImageCarouselLandingPage = ({ imgsrc, text1, text2, text3 }) => {
+const CardImageCarouselLandingPage = ({ imgsrc, text1, text2, text3, lien }) => {
     return (<div class="w-screen rounded-lg shadow-lg bg-gradient-to-r from-purple-300 via-rose-200 to-red-300 pt-10">
         <div class="grid place-items-center">
 
@@ -36,7 +36,7 @@ const CardImageCarouselLandingPage = ({ imgsrc, text1, text2, text3 }) => {
                         <motion.div whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9, x: "-5px", y: "5px" }}>
                             <div className="href">
-                                <a href="#" class="text-pink-900 hover:text-purple-700 underline text-1xl">{text3}</a>
+                                <a class="text-pink-900 hover:text-purple-700 underline text-1xl"><Link to={lien}>{text3}</Link></a>
                             </div>
                         </motion.div>
                     </motion.div>
