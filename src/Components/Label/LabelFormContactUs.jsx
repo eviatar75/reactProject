@@ -1,6 +1,6 @@
-const LabelFormContactUs = ({text})=>{
+const LabelFormContactUs = ({text, className})=>{
     return (
-      <label>{text}</label>
+      <label className={className}>{text}</label>
     )
   }
   
