@@ -65,7 +65,7 @@ const Form = () => {
                 variants={variantsForMessageInContactPage}
                 initial="initial"
         >       
-            <div className="text-xl text-white font-bold rounded-full bg-purple-400">
+            <div className="text-xl text-white font-bold rounded-full bg-purple-400 p-1">
             <p>{"Merci pour votre message, nous vous répondrons dans les plus bref délais."}</p>
             </div>
         </motion.div>}

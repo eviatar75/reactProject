@@ -11,6 +11,7 @@ const Search = ()=>{
     const [isbn, setIsbn] = useState("")
     const [isbnCleaned, setIsbnCleaned] = useState("+")
     const [books,setBooks]=useState(null)
+    const api_key_googlebook = process.env.REACT_APP_CLE_API_GOOGLEBOOK
 
      const titleSetter = (e)=>{
         setTitle( e.target.value)
@@ -36,6 +37,7 @@ const Search = ()=>{
             else
             {
                 setUnfilled(true)
+                setBooks(null)
             }
       }, [title,author,isbn]);
 
@@ -45,10 +47,9 @@ const Search = ()=>{
 
         event.preventDefault()
 
-        const url = "https://www.googleapis.com/books/v1/volumes?q="+titleCleaned+"author:"+authorCleaned+"isbn:"+isbnCleaned+"&printType=books&key=AIzaSyArMVNsuq-fhb-nPcJak4LI5Ueh0qgHL6k";
+        const url = "https://www.googleapis.com/books/v1/volumes?q="+titleCleaned+"author:"+authorCleaned+"isbn:"+isbnCleaned+"&printType=books&key="+api_key_googlebook;
         const response = await fetch(url);
         const data = await response.json();
-        //const results = data.results;
         setBooks(data);
         console.log(books);
 
@@ -67,9 +68,25 @@ const Search = ()=>{
                     <input type="submit" className="bg-gray-200 text-xl font-bold rounded-full p-1" disabled={unfilled} onClick={(e)=>fetchAPI(e)}></input>
                 </form>
             </div>
-            <div className="grid grid-cols-4 gap-2">
-            { books!==null && typeof books.items !== 'undefined'? books.items.map((item) => { return <div><CardBooksSearchPage source={typeof item.volumeInfo.imageLinks !== 'undefined'?item.volumeInfo.imageLinks.thumbnail:""} title={item.volumeInfo.title} author={item.volumeInfo.authors} description={item.description} isbn={typeof item.volumeInfo.industryIdentifiers !== 'undefined'?item.volumeInfo.industryIdentifiers[0].identifier:""} ></CardBooksSearchPage></div>}):<div>Aucun livre de ce genre...</div>}
-            </div>
+            { books!==null && typeof books.items !== 'undefined'? 
+                <div className="grid grid-cols-4 gap-2"> 
+                {
+                    books.items.map((item) => 
+                    {
+                        return <div><CardBooksSearchPage source={typeof item.volumeInfo.imageLinks !== 'undefined'?item.volumeInfo.imageLinks.thumbnail:"https://i.goopics.net/pcg0g0.jpg"} title={item.volumeInfo.title} author={item.volumeInfo.authors} description={item.description} isbn={typeof item.volumeInfo.industryIdentifiers !== 'undefined'?item.volumeInfo.industryIdentifiers[0].identifier:""} ></CardBooksSearchPage></div>
+                    })
+                }</div> 
+                :books!==null && typeof books.items === 'undefined'?
+                    <div className ="grid justify-items-center pt-10 text-3xl font-semibold">
+                        <div>
+                            <img src="https://i.goopics.net/aml479.png"></img>
+                        </div>
+                        <div>
+                            Aucun livre de ce genre...
+                        </div>
+                    </div>
+                    :<div></div>
+            }
             </>
 }
 
