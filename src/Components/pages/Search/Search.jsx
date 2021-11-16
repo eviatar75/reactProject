@@ -73,13 +73,13 @@ const Search = ()=>{
                 {
                     books.items.map((item) => 
                     {
-                        return <div><CardBooksSearchPage source={typeof item.volumeInfo.imageLinks !== 'undefined'?item.volumeInfo.imageLinks.thumbnail:"https://i.goopics.net/pcg0g0.jpg"} title={item.volumeInfo.title} author={item.volumeInfo.authors} description={item.description} isbn={typeof item.volumeInfo.industryIdentifiers !== 'undefined'?item.volumeInfo.industryIdentifiers[0].identifier:""} ></CardBooksSearchPage></div>
+                        return <div><CardBooksSearchPage source={typeof item.volumeInfo.imageLinks !== 'undefined'?item.volumeInfo.imageLinks.thumbnail:"https://i.goopics.net/pcg0g0.jpg"} title={item.volumeInfo.title} author={typeof item.volumeInfo.authors !== 'undefined'?item.volumeInfo.authors[0]:item.volumeInfo.authors} description={item.description} isbn={typeof item.volumeInfo.industryIdentifiers !== 'undefined'?item.volumeInfo.industryIdentifiers[0].identifier:""} ></CardBooksSearchPage></div>
                     })
                 }</div> 
                 :books!==null && typeof books.items === 'undefined'?
                     <div className ="grid justify-items-center pt-10 text-3xl font-semibold">
                         <div>
-                            <img src="https://i.goopics.net/aml479.png"></img>
+                            <img src="https://i.goopics.net/aml479.png" alt="bah alors goopics tu nous plante ?"></img>
                         </div>
                         <div>
                             Aucun livre de ce genre...

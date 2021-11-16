@@ -15,19 +15,16 @@ const CardBooksSearchPage = ({ title, author, description, isbn, source }) => {
 
       <div class="max-w-sm rounded overflow-hidden shadow-lg">
           <div class="grid place-items-center">
-        <img class="w-52 max-h-72" src={source} alt="" />
+        <img class="w-52 h-72 min-h-72" src={source} alt="" />
         </div>
         <div class="px-6 py-4">
-          <div class="font-bold text-xl italic mb-2 truncate ">{title}</div>
-          <p class="text-gray-500 text-base">
-            {description}
-          </p>
+          <div class="font-bold text-xl italic mb-2 truncate">{title}</div>
         </div>
-        <p class="text-gray-700 text-base text-right pr-4">
-          Par {author}
+        <p class="text-gray-700 text-base text-right pr-4 truncate pl-4">
+          {typeof author !=="undefined"?"Par "+author:"Auteur inconnu"}
         </p>
         <div class="p-2">
-          <div class="grid place-items-center">
+          <div class="grid place-items-center mt-2 mb-2">
             <form action={url} method="get">
               <button class="bg-purple-500 hover:bg-purple-400 text-white font-bold py-2 px-4 border-b-4 border-purple-700 hover:border-purple-500 rounded">
                 Comparer les prix
