@@ -1,6 +1,6 @@
-function TitlePageAbout({text,size, underline}) {
+function TitlePageAbout({text,size, color, underline}) {
     return (
-        <h1 id="primary-title" style={{fontSize: size, textDecoration: underline}}>{text}</h1>
+        <h1 id="primary-title" style={{fontSize: size, color:color, textDecoration: underline}}>{text}</h1>
     )
 }
 export default TitlePageAbout;

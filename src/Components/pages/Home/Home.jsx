@@ -4,18 +4,18 @@ import { motion, useAnimation } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import CardBooksLandingPage from "../../Card/CardBooksLandingPage";
 import Header from "../../Header";
-import Footer from '../../Footer';
 import { variantsForCardsUp, variantsForCardsDown, variantsForTitleInLandingPage, variantsForDivBottomLandingPage } from "../../../Variants";
 import { useInView } from "react-intersection-observer";
 
 const Home = () => {
     ///states
     const [books, setBooks] = useState(null);
+    //const[coverBook, setCoverBook] = useState("");
     //const[imageBook, setImageBook] = useState([]);
 
     ///variables
     const api_key_nytimes = process.env.REACT_APP_CLE_API_NYTIMES;
-    const api_key_googlebook = process.env.REACT_APP_CLE_API_GOOGLEBOOK;
+    //const api_key_googlebook = process.env.REACT_APP_CLE_API_GOOGLEBOOK;
 
     ///refs
     const firstScroll = useRef(null);
@@ -33,16 +33,6 @@ const Home = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    /*const showBestSellers = async () => {
-        const url = "https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json?api-key=" + api_key_nytimes;
-        const response = await fetch(url);
-        const data = await response.json();
-        const results = data.results;
-        //console.log(results.author);
-        setBooks(results);
-        console.log(results)
-    }*/
-
     /*const updateCoverBook=async()=>{
         const url = "https://www.googleapis.com/books/v1/volumes?q=isbn:"+isbnBook+"&key="+api_key_googlebook;
         const response = await fetch(url);
@@ -56,8 +46,8 @@ const Home = () => {
             const url = "https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json?api-key=" + api_key_nytimes;
             const response = await fetch(url);
             const data = await response.json();
-            const results = data.results;
-            setBooks(results);
+            ///const results = data.results;
+            setBooks(data);
         }
         showBestSellers();
         if (inViewDiv) {
@@ -68,6 +58,20 @@ const Home = () => {
         }
         //updateCoverBook();
     }, [controlsTitle, inViewTitle, controlsDiv, inViewDiv]);
+
+    /*async function updateCoverBook(isbn){
+        const url = "https://www.googleapis.com/books/v1/volumes?q=isbn:"+isbn+"&key="+api_key_googlebook;
+        const response = await fetch(url);
+        const data = await response.json();
+        if(typeof data.items!=="undefined"){
+            data.items.map((item) => {
+                if(typeof item!=="undefined" && typeof item.volumeInfo.imageLinks!=="undefined"){
+                    return item.volumeInfo.imageLinks.thumbnail
+                }
+            });    
+        }
+
+    }*/
 
     return (
         <>
@@ -111,13 +115,15 @@ const Home = () => {
                     {<div class="container my-12 mx-auto pt-10 md:px-12">
                         {books && (
                             <div class="flex flex-wrap -mx-1 lg:-mx-4">
-                                {books.map((book, index) => {
+                                {books.results.map((book, index) => {
                                     return (
                                         <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3" key={index}>
-                                            <CardBooksLandingPage title={book.title} author={book.author} description={book.description} isbn={book.isbns.map((isbn) => {
-                                                const { isbn10 } = isbn
-                                                return isbn10
-                                            })} />
+                                            <CardBooksLandingPage
+                                            title={book.title}
+                                            author={book.author}
+                                            description={book.description}
+                                            isbn={typeof book.isbns[0] !== 'undefined'?book.isbns[0].isbn10:""} 
+                                            />
                                         </div>)
                                 })}
                             </div>
@@ -132,7 +138,6 @@ const Home = () => {
 
                 </div>
             </motion.div>
-            <Footer></Footer>
         </>
     )
 }
