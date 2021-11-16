@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import CardBooksSearchPage from "../../Card/CardBooksSearchPage";
+import Header from "../../Header";
+import Footer from "../../Footer";
+
 
 const Search = ()=>{
 
@@ -56,6 +59,7 @@ const Search = ()=>{
     }
 
     return <>
+            <Header/>
             <div className="pt-40 flex justify-center"> 
             <form className="grid grid-cols-2 gap-4">
                     <label>Titre</label>
@@ -87,6 +91,7 @@ const Search = ()=>{
                     </div>
                     :<div></div>
             }
+            <Footer/>
             </>
 }
 

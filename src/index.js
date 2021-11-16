@@ -1,41 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Header from './Components/Header';
-import Footer from './Components/Footer';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import About from './Components/pages/About/About';
-import { Constant } from './Constant';
-import Home from './Components/pages/Home/Home';
-import ContactUs from './Components/pages/ContactUs/ContactUs';
-import Search from './Components/pages/Search/Search';
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Switch>
-      <Route exact path={Constant.PATHS.HOME}>
-        <Home/>
-        <Footer></Footer>
-      </Route>
-      <Route path={Constant.PATHS.ABOUT}>
-      <Header></Header>
-      <About/>
-      <Footer></Footer>
-      </Route>
-      <Route exact path={Constant.PATHS.CONTACTUS}>
-        <Header></Header>
-        <ContactUs/>
-        <Footer></Footer>
-      </Route>
-      <Route exact path={Constant.PATHS.SEARCH}>
-      <Header></Header>
-        <Search/>
-        <Footer/>
-      </Route>
-      </Switch>
-    </Router>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
