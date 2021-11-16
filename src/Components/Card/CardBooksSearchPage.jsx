@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const CardBooksSearchPage = ({ title, author, description, isbn, source }) => {
   const url = "https://www.chasse-aux-livres.fr/prix/" + isbn;
 
-  return (<div class="p-10">
+  return (<div class="p-10 h-1/6">
     <motion.div
       whileHover={{
         scale: 1.1,
@@ -15,15 +15,15 @@ const CardBooksSearchPage = ({ title, author, description, isbn, source }) => {
 
       <div class="max-w-sm rounded overflow-hidden shadow-lg">
           <div class="grid place-items-center">
-        <img class="w-52" src={source} alt="" />
+        <img class="w-52 max-h-72" src={source} alt="" />
         </div>
         <div class="px-6 py-4">
-          <div class="font-bold text-xl italic mb-2">{title}</div>
+          <div class="font-bold text-xl italic mb-2 truncate ">{title}</div>
           <p class="text-gray-500 text-base">
             {description}
           </p>
         </div>
-        <p class="text-gray-700 text-base text-right">
+        <p class="text-gray-700 text-base text-right pr-4">
           Par {author}
         </p>
         <div class="p-2">
