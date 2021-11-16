@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import { Constant } from "../Constant";
+import {firebase} from "../Firebase/firebase"
 
 const Header = ()=>{
+    const signOut =() =>{
+        firebase.auth().signOut();
+    }
     return<div>
         <div class="fixed w-full bg-purple-200 z-10">
             <header class="flex">
@@ -24,6 +28,9 @@ const Header = ()=>{
                     </div>
                     <div>
                         <Link to={Constant.PATHS.CONTACTUS}>Nous contacter</Link>
+                    </div>
+                    <div>
+                        <button onClick={signOut}>Deconnexion</button>
                     </div>
                 </div>
             </header>

@@ -4,6 +4,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import CardBooksLandingPage from "../../Card/CardBooksLandingPage";
 import Header from "../../Header";
+import Footer from '../../Footer';
 import { variantsForCardsUp, variantsForCardsDown, variantsForTitleInLandingPage, variantsForDivBottomLandingPage } from "../../../Variants";
 import { useInView } from "react-intersection-observer";
 
@@ -131,6 +132,7 @@ const Home = () => {
 
                 </div>
             </motion.div>
+            <Footer></Footer>
         </>
     )
 }
