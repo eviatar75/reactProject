@@ -9,7 +9,6 @@ import SignIn from './Components/pages/SignIn/SignIn';
 import ContactUs from './Components/pages/ContactUs/ContactUs';
 import Search from './Components/pages/Search/Search';
 import { firebase } from './Firebase/firebase';
-import ThemeProvider from './ThemeContext';
 
 
 function App() {
@@ -27,7 +26,6 @@ function App() {
   if (isUserSignedIn === true)
     return (
       <React.StrictMode>
-        <ThemeProvider>
           <Router>
             <Switch>
               <Route exact path={Constant.PATHS.HOME}>
@@ -44,7 +42,6 @@ function App() {
               </Route>
             </Switch>
           </Router>
-        </ThemeProvider>
       </React.StrictMode>
     )
   else {
