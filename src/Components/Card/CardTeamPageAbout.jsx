@@ -1,9 +1,12 @@
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
+import { ThemeContext } from "../../ThemeContext";
 import DropDownButtonPageAbout from "../Button/DropDownButtonPageAbout";
 import RoundedImage from "../RoundedImage/RoundedImage";
 
 function CardTeamPageAbout(){
     const [persons, setPerson]=useState(null)
+    const theme = useContext(ThemeContext);
+    const darkMode = theme.state.darkMode;
 
      useEffect( ()=>{
         async function fetchData(){
@@ -20,7 +23,7 @@ function CardTeamPageAbout(){
         return   <button disabled="true" className="bg-gray-200 text-2xl font-bold rounded-full p-4 mb-10 mt-10">Loading...</button>         
     }
     else {
-        return<div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+        return<div class={`${darkMode?"bg-black":"bg-white"} p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5 transition duration-500`}>
             {persons.map((person, i) => {
                 return (<div key={i}>
                     <div class="rounded overflow-hidden shadow-lg">
@@ -34,7 +37,7 @@ function CardTeamPageAbout(){
                         </div>
                         <div class="px-6 py-4">
                             <div class="grid place-items-center">
-                                <div class="font-bold text-xl mb-2">{person.name.title} {person.name.first} {person.name.last}</div>
+                                <div class={`${darkMode?"text-white":"text-black"} font-bold text-xl mb-2`}>{person.name.title} {person.name.first} {person.name.last}</div>
                                 <DropDownButtonPageAbout ville={person.location.city} mail={person.email} telephone={person.phone}/>
                             </div>
                         </div>
