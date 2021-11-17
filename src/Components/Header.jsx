@@ -30,7 +30,7 @@ const Header = ()=>{
                         <Link to={Constant.PATHS.CONTACTUS}>Nous contacter</Link>
                     </div>
                     <div>
-                        Bonjour {firebase.auth().currentUser.displayName}
+                       {firebase.auth().currentUser!==null ? "Bonjour "+firebase.auth().currentUser.displayName:<></>}
                     </div>
                     <div>
                         <button onClick={signOut}>Deconnexion</button>
