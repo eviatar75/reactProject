@@ -1,6 +1,6 @@
-const InputFormContactUs = ({ type, value, className, disabled, onChange, onClick }) => {
+const InputFormContactUs = ({ type, value, className, disabled, onChange, onClick, style, placeholder }) => {
   return (
-    <input type={type} value={value} className={className} disabled={disabled} onChange={onChange} onClick={onClick}></input>
+    <input type={type} value={value} className={className} disabled={disabled} onChange={onChange} onClick={onClick} style={style} placeholder={placeholder}></input>
   )
 }
 
