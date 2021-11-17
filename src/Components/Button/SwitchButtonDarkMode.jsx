@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../ThemeContext";
-
 function SwitchButtonDarkMode(){
     const theme = useContext(ThemeContext);
     const darkMode = theme.state.darkMode;
@@ -15,6 +14,7 @@ function SwitchButtonDarkMode(){
     }
 
     return(
+        
         <button className={`btn ${darkMode ? "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" : "bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"}`} onClick={onclick}>
             {darkMode ? "Mode normal" : "Mode nuit"}
         </button>

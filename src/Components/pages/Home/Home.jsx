@@ -10,12 +10,10 @@ import { useInView } from "react-intersection-observer";
 const Home = () => {
     ///states
     const [books, setBooks] = useState(null);
-    //const[coverBook, setCoverBook] = useState("");
-    //const[imageBook, setImageBook] = useState([]);
+
 
     ///variables
     const api_key_nytimes = process.env.REACT_APP_CLE_API_NYTIMES;
-    //const api_key_googlebook = process.env.REACT_APP_CLE_API_GOOGLEBOOK;
 
     ///refs
     const firstScroll = useRef(null);
@@ -33,20 +31,11 @@ const Home = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    /*const updateCoverBook=async()=>{
-        const url = "https://www.googleapis.com/books/v1/volumes?q=isbn:"+isbnBook+"&key="+api_key_googlebook;
-        const response = await fetch(url);
-        const data = await response.json();
-        const results = data.results;
-        return results.volumeInfo.imageLinks.thumbnail;
-    }*/
-
     useEffect(() => {
         async function showBestSellers() {
             const url = "https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json?api-key=" + api_key_nytimes;
             const response = await fetch(url);
             const data = await response.json();
-            ///const results = data.results;
             setBooks(data);
         }
         showBestSellers();
@@ -56,22 +45,9 @@ const Home = () => {
         if (inViewTitle) {
             controlsTitle.start("animate");
         }
-        //updateCoverBook();
     }, [controlsTitle, inViewTitle, controlsDiv, inViewDiv]);
 
-    /*async function updateCoverBook(isbn){
-        const url = "https://www.googleapis.com/books/v1/volumes?q=isbn:"+isbn+"&key="+api_key_googlebook;
-        const response = await fetch(url);
-        const data = await response.json();
-        if(typeof data.items!=="undefined"){
-            data.items.map((item) => {
-                if(typeof item!=="undefined" && typeof item.volumeInfo.imageLinks!=="undefined"){
-                    return item.volumeInfo.imageLinks.thumbnail
-                }
-            });    
-        }
 
-    }*/
 
     return (
         <>

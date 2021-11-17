@@ -7,7 +7,7 @@ const CardPageAboutProject = () => {
 
   return (
     <div class="px-10">
-      <div class={`${darkMode?"bg-black":"bg-white"} max-w-xl rounded-2xl px-10 py-8 shadow-lg hover:shadow-2xl transition duration-500`}>
+      <div class={`${darkMode?"bg-black ":"bg-white"} max-w-xl rounded-2xl px-10 py-8 shadow-lg hover:shadow-2xl transition duration-500`}>
         <div class="mt-4">
           <h1 class={`${darkMode?"text-white":"text-gray-700"} text-lg font-semibold hover:underline cursor-pointer`}>L'histoire de ce projet</h1>
           <div class="flex mt-2">
